@@ -2,7 +2,7 @@ import rclpy
 from rclpy.node import Node
 import time
 import numpy as np
-from odrive_ep_interfaces.msg import MotorSingle
+from odrive_ep_interfaces.msg import Motorsingle
 from odrive_ep_interfaces.srv import OdriveMode
 from sensor_msgs.msg import Joy
 from rclpy.qos import ReliabilityPolicy, QoSProfile
@@ -36,8 +36,8 @@ class ControlClass(Node):
         self.get_logger().info("Init...")
 
 
-        self.motor_pub = self.create_publisher(MotorSingle, 'goal_posvel_single', 10)
-        self.motor = MotorSingle()
+        self.motor_pub = self.create_publisher(Motorsingle, 'goal_posvel_single', 10)
+        self.motor = Motorsingle()
         self.motor_client = self.create_client(OdriveMode, 'odrive_mode_srv_single', callback_group=self.group3)
         while not self.motor_client.wait_for_service(timeout_sec=1.0):
            self.get_logger().info('motor service not available, waiting again...')

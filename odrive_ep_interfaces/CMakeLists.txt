@@ -27,7 +27,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/Posvel.msg"
   "msg/Motor.msg"
   "srv/OdriveMode.srv"
-  "msg/MotorSingle.msg"
+  "msg/Motorsingle.msg"
 )
 
 ament_package()

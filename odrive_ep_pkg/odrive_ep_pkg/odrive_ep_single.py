@@ -4,7 +4,7 @@ import rclpy
 # import the ROS2 python libraries
 from rclpy.node import Node
 # import the Twist interface from the geometry_msgs package
-from odrive_ep_interfaces.msg import MotorSingle
+from odrive_ep_interfaces.msg import Motorsingle
 from odrive_ep_interfaces.srv import OdriveMode
 
 from rclpy.callback_groups import ReentrantCallbackGroup, MutuallyExclusiveCallbackGroup
@@ -60,7 +60,7 @@ class Odrive_ep(Node):
         self.timer = self.create_timer(timer_period, self.timer_callback, callback_group=self.group2)
 
         self.subscriber = self.create_subscription(
-            MotorSingle,
+            Motorsingle,
             'goal_posvel_single',
             self.listener_callback,
             QoSProfile(depth=10, reliability=ReliabilityPolicy.RELIABLE),
@@ -71,7 +71,7 @@ class Odrive_ep(Node):
         
     def timer_callback(self):
         
-        msg = MotorSingle()
+        msg = Motorsingle()
         posvel = self.read_posvel()
 
         self.cur_pos = posvel[0]

@@ -14,11 +14,11 @@ from rclpy.qos import ReliabilityPolicy, QoSProfile
 import time
 
 num_threads = 4
-#odrive_serial_id1 = "356F30543133"                  #바꿔줄것 
-#odrive_serial_id2 = "356F30733133"
+odrive_serial_id1 = "356F30543133"                  #바꿔줄것 
+odrive_serial_id2 = "356F30733133"
 
-odrive_serial_id1 = "3369356B3233"                  #바꿔줄것 
-odrive_serial_id2 = "3755366B3331"
+#odrive_serial_id1 = "3369356B3233"                  #바꿔줄것 
+#odrive_serial_id2 = "3755366B3331"
 
 
 

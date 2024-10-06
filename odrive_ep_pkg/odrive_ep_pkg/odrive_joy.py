@@ -50,7 +50,8 @@ class ControlClass(Node):
         self.velarr = [0.0, 0.0, 0.0, 0.0]
         self.curMode = 'vel'
 
-        self.max_speed = 10
+        self.max_speed = 15
+        self.rotate_speed = 6.0
         
         
         self.LEFT_STICK_X = 0
@@ -115,25 +116,44 @@ class ControlClass(Node):
                 while not self.future.done():
                     if self.check_res_motor():
                         self.curMode = "pos"
-
+        
 
         if abs(msg.axes[self.LEFT_STICK_Y]) > 0.09:
             self.move_y(msg.axes[self.LEFT_STICK_Y] * self.max_speed)
         elif abs(msg.axes[self.LEFT_STICK_X]) > 0.09:
             self.move_x(msg.axes[self.LEFT_STICK_X] * self.max_speed)
+        elif msg.buttons[self.LEFT_BUMPER] == 1:
+            self.rotate_l()
+        elif msg.buttons[self.RIGHT_BUMPER] == 1:
+            self.rotate_r()
         else:
             self.stop()
 
 
             
     def move_y(self, data):
-        for i in range(4):
-            self.velarr[i] = data
-    def move_x(self, data):
-        self.velarr[0] = data
-        self.velarr[1] = -1 * data
+        self.velarr[0] = -1 * data
+        self.velarr[1] = data
         self.velarr[2] = data
         self.velarr[3] = -1 * data
+        
+    def move_x(self, data):
+        self.velarr[0] = data
+        self.velarr[1] = data
+        self.velarr[2] = -1 * data
+        self.velarr[3] = -1 * data
+        
+    def rotate_r(self):
+        self.velarr[0] = self.rotate_speed
+        self.velarr[1] = self.rotate_speed
+        self.velarr[2] = self.rotate_speed
+        self.velarr[3] = self.rotate_speed
+        
+    def rotate_l(self):
+        self.velarr[0] = -1 * self.rotate_speed
+        self.velarr[1] = -1 * self.rotate_speed
+        self.velarr[2] = -1 * self.rotate_speed
+        self.velarr[3] = -1 * self.rotate_speed
 
     def stop(self):
         self.velarr = [0.0,0.0,0.0,0.0]
