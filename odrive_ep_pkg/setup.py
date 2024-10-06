@@ -23,7 +23,11 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-        'odrive_ep = odrive_ep_pkg.odrive_ep:main',
+        'odrive_ep_motor_double = odrive_ep_pkg.odrive_ep_double:main',
+        'odrive_ep_motor_single = odrive_ep_pkg.odrive_ep_single:main',
+        'odrive_ep_joy = odrive_ep_pkg.odrive_joy:main',
+        'odrive_ep_joy_no_service = odrive_ep_pkg.odrive_joy_no_service:main',
+        'odrive_ep_joy_single = odrive_ep_pkg.odrive_joy_single:main',
         ],
     },
 )
