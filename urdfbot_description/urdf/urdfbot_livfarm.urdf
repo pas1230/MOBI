@@ -1,0 +1,194 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="for">
+    <link name="depthcam">
+        <inertial>
+            <origin xyz="0.2077934975286655 0.0011115851563750052 0.6565726048226638" rpy="0.0 -0.0 0.0" />
+            <mass value="0.12357215378449894" />
+            <inertia ixx="7.471042232364694e-05" iyy="1.1204875998212238e-05" izz="7.507655482745165e-05" ixy="9.582642854677948e-07" iyz="-5.575817337086643e-07" ixz="3.567664193723785e-07" />
+        </inertial>
+        <visual name="depthcam_visual">
+            <origin xyz="0.20431500000000008 0.0 0.6551490000000003" rpy="0.0 5.55111512312578e-17 0.0" />
+            <geometry>
+                <mesh filename="package://urdfbot_description/meshes/depthcam.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="depthcam_collision">
+            <origin xyz="0.20431500000000008 0.0 0.6551490000000003" rpy="0.0 5.55111512312578e-17 0.0" />
+            <geometry>
+                <mesh filename="package://urdfbot_description/meshes/depthcam.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="imu">
+        <inertial>
+            <origin xyz="0.14 0.0 0.0925" rpy="0.0 -0.0 0.0" />
+            <mass value="0.0052257960000000004" />
+            <inertia ixx="2.8487555928000493e-07" iyy="2.8487555928002526e-07" izz="5.619124245599894e-07" ixy="0.0" iyz="0.0" ixz="0.0" />
+        </inertial>
+        <visual name="imu_visual">
+            <origin xyz="0.14 0.0 0.0925" rpy="0.0 -0.0 0.0" />
+            <geometry>
+                <mesh filename="package://urdfbot_description/meshes/imu.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="imu_collision">
+            <origin xyz="0.14 0.0 0.0925" rpy="0.0 -0.0 0.0" />
+            <geometry>
+                <mesh filename="package://urdfbot_description/meshes/imu.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="fr">
+        <inertial>
+            <origin xyz="1.7638783795348444e-07 -0.06166143954152951 7.570621437321165e-07" rpy="0.0 -0.0 0.0" />
+            <mass value="2.837554355689987" />
+            <inertia ixx="0.004828387718020077" iyy="0.007860498102555097" izz="0.004828387689527203" ixy="-1.8583774602509706e-08" iyz="-8.002847495102247e-08" ixz="-6.990640456273809e-12" />
+        </inertial>
+        <visual name="fr_visual">
+            <origin xyz="4.125022236678433e-08 -0.004000395737691456 -2.2397809434410895e-07" rpy="-2.421628242969205e-13 -0.0 0.0" />
+            <geometry>
+                <mesh filename="package://urdfbot_description/meshes/fr.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="fr_collision">
+            <origin xyz="4.125022236678433e-08 -0.004000395737691456 -2.2397809434410895e-07" rpy="-2.421628242969205e-13 -0.0 0.0" />
+            <geometry>
+                <mesh filename="package://urdfbot_description/meshes/fr.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="fl">
+        <inertial>
+            <origin xyz="1.7638783823770156e-07 0.0616614384752339 -7.605512353544224e-07" rpy="0.0 -0.0 0.0" />
+            <mass value="2.8375543556899876" />
+            <inertia ixx="0.004828387718020077" iyy="0.007860498102555041" izz="0.004828387689527147" ixy="1.8583774546998555e-08" iyz="-8.002847493077203e-08" ixz="6.990663175920916e-12" />
+        </inertial>
+        <visual name="fl_visual">
+            <origin xyz="4.125022247336574e-08 0.003999953605165061 1.639782291453414e-07" rpy="-2.421628242969204e-13 -0.0 0.0" />
+            <geometry>
+                <mesh filename="package://urdfbot_description/meshes/fl.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="fl_collision">
+            <origin xyz="4.125022247336574e-08 0.003999953605165061 1.639782291453414e-07" rpy="-2.421628242969204e-13 -0.0 0.0" />
+            <geometry>
+                <mesh filename="package://urdfbot_description/meshes/fl.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="rr">
+        <inertial>
+            <origin xyz="1.7525576812005284e-07 -0.06166143954152922 7.565959187794005e-07" rpy="0.0 -0.0 0.0" />
+            <mass value="2.837554355689987" />
+            <inertia ixx="0.004828387718020105" iyy="0.007860498102555097" izz="0.004828387689527203" ixy="-1.858377457475413e-08" iyz="-8.002847494967622e-08" ixz="-6.990640456273809e-12" />
+        </inertial>
+        <visual name="rr_visual">
+            <origin xyz="4.0118152533352716e-08 -0.0040003957376911715 -2.2444431927121838e-07" rpy="-2.417187350870703e-13 -0.0 0.0" />
+            <geometry>
+                <mesh filename="package://urdfbot_description/meshes/rr.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="rr_collision">
+            <origin xyz="4.0118152533352716e-08 -0.0040003957376911715 -2.2444431927121838e-07" rpy="-2.417187350870703e-13 -0.0 0.0" />
+            <geometry>
+                <mesh filename="package://urdfbot_description/meshes/rr.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="rl">
+        <inertial>
+            <origin xyz="1.7525576840426992e-07 0.061661438475234115 -7.600851144962171e-07" rpy="0.0 -0.0 0.0" />
+            <mass value="2.8375543556899876" />
+            <inertia ixx="0.004828387718020022" iyy="0.007860498102555041" izz="0.004828387689527147" ixy="1.858377457475413e-08" iyz="-8.002847492942557e-08" ixz="6.990663176026795e-12" />
+        </inertial>
+        <visual name="rl_visual">
+            <origin xyz="4.0118152639934124e-08 0.003999953605165239 1.644443499779398e-07" rpy="-2.417187350870704e-13 -0.0 0.0" />
+            <geometry>
+                <mesh filename="package://urdfbot_description/meshes/rl.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="rl_collision">
+            <origin xyz="4.0118152639934124e-08 0.003999953605165239 1.644443499779398e-07" rpy="-2.417187350870704e-13 -0.0 0.0" />
+            <geometry>
+                <mesh filename="package://urdfbot_description/meshes/rl.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="lidar">
+        <inertial>
+            <origin xyz="0.19890700000000003 0.0 0.13415300000000002" rpy="0.0 -0.0 0.0" />
+            <mass value="0.45669626112732004" />
+            <inertia ixx="0.000213806445884087" iyy="0.00021380644588409395" izz="0.0002984104748535235" ixy="-1.2278178473934532e-19" iyz="1.2278178473934532e-19" ixz="0.0" />
+        </inertial>
+        <visual name="lidar_visual">
+            <origin xyz="0.19890700000000003 0.0 0.14485300000000004" rpy="0.0 -0.0 0.0" />
+            <geometry>
+                <mesh filename="package://urdfbot_description/meshes/lidar.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="lidar_collision">
+            <origin xyz="0.19890700000000003 0.0 0.14485300000000004" rpy="0.0 -0.0 0.0" />
+            <geometry>
+                <mesh filename="package://urdfbot_description/meshes/lidar.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="base_link">
+        <inertial>
+            <origin xyz="6.525092851947388e-08 1.198093576927118e-07 0.7982005454196317" rpy="0.0 0.0 0.0" />
+            <mass value="70.88150424009648" />
+            <inertia ixx="11.75392022368657" iyy="11.646069432292414" izz="3.9283253578073816" ixy="4.63532716750909e-08" iyz="1.680256468732027e-06" ixz="3.3183773682066916e-06" />
+        </inertial>
+        <visual name="base_link_visual">
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://urdfbot_description/meshes/base_link.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="base_link_collision">
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://urdfbot_description/meshes/base_link.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="base_link_fl" type="continuous">
+        <origin xyz="0.22050051 0.16748228 -2.7e-07" rpy="0.0 -0.0 0.0" />
+        <parent link="base_link" />
+        <child link="fl" />
+        <axis xyz="0.0 0.0 1.0" />
+    </joint>
+    <joint name="base_link_rl" type="continuous">
+        <origin xyz="-0.22049943 0.16748228 -2.7e-07" rpy="0.0 -0.0 0.0" />
+        <parent link="base_link" />
+        <child link="rl" />
+        <axis xyz="0.0 0.0 1.0" />
+    </joint>
+    <joint name="base_link_fr" type="continuous">
+        <origin xyz="0.22050051 -0.16748372 3.3e-07" rpy="0.0 -0.0 0.0" />
+        <parent link="base_link" />
+        <child link="fr" />
+        <axis xyz="0.0 0.0 1.0" />
+    </joint>
+    <joint name="base_link_rr" type="continuous">
+        <origin xyz="-0.22049943 -0.16748372 3.3e-07" rpy="0.0 -0.0 0.0" />
+        <parent link="base_link" />
+        <child link="rr" />
+        <axis xyz="0.0 0.0 1.0" />
+    </joint>
+    <joint name="base_link_imu" type="fixed">
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0" />
+        <parent link="base_link" />
+        <child link="imu" />
+    </joint>
+    <joint name="base_link_lidar" type="fixed">
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0" />
+        <parent link="base_link" />
+        <child link="lidar" />
+    </joint>
+    <joint name="base_link_depthcam" type="fixed">
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0" />
+        <parent link="base_link" />
+        <child link="depthcam" />
+    </joint>
+</robot>
