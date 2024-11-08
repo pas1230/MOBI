@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+<!--base_link-->
+  <xacro:property name="base_length" value="0.370" />
+  <xacro:property name="base_width" value="0.370" />
+  <xacro:property name="base_height" value="0.8" />
+  <xacro:property name="base_mass" value="45" />
+
+<!--wheel-->
+<!--여기서 fl 한짝만 써두고 mecanum.urdf.xacro에서 4짝 전부 불러옴-->
+  <xacro:property name="wheel_radius" value="0.076" />
+  <xacro:property name="wheel_width" value="0.055" />
+  <xacro:property name="wheel_pos_x" value="0.22051" />
+  <xacro:property name="wheel_pos_y" value="0.232" />
+  <xacro:property name="wheel_pos_z" value="0.0" />
+  <xacro:property name="wheel_mass" value="0.6" />
+  <xacro:property name="wheel_torque" value="4.96" />
+  
+<!--seonsor-->
+<!--lidar-->
+  <xacro:property name="laser_pose">
+    <origin xyz="0.262 0 0.0852" rpy="0 0 0"/>
+  </xacro:property>
+
+<!--depthcam-->
+  <xacro:property name="depth_sensor_pose">
+    <origin xyz="0.204 0 0.6" rpy="0 0.523599 0"/>
+  </xacro:property>
+
+<!--imu-->
+  <xacro:property name="depth_sensor_pose">
+    <origin xyz="0.204 0 0.6" rpy="0 0.523599 0"/>
+  </xacro:property>
+
+
+</robot>
