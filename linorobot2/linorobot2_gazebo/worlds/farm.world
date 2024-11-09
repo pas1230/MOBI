@@ -1,0 +1,182 @@
+<?xml version="1.0" ?>
+<sdf version="1.7">
+  <world name="smartfarm_slam_world">
+    <!-- 기본 GUI 설정 -->
+    <gui fullscreen='0'>
+      <camera name='main_camera'>
+        <pose>15 15 10 0 -0.5 0</pose> <!-- 카메라 위치 -->
+        <view_controller>orbit</view_controller>
+      </camera>
+    </gui>
+
+    <!-- 환경 설정 -->
+    <scene>
+      <ambient>0.5 0.5 0.5 1</ambient>
+      <grid>true</grid>
+      <sky>
+        <clouds>
+          <speed>5</speed>
+        </clouds>
+      </sky>
+    </scene>
+
+    <!-- 조명 설정 -->
+    <light type="directional" name="sunlight">
+      <pose>0 0 10 0.6 0 0</pose>
+      <diffuse>1 1 1 1</diffuse>
+      <specular>0.1 0.1 0.1 1</specular>
+      <attenuation>
+        <range>100</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.5 -1</direction>
+    </light>
+
+    <!-- 바닥 -->
+    <model name="floor">
+      <static>true</static>
+      <link name="floor_link">
+        <visual name="floor_visual">
+          <geometry>
+            <box>
+              <size>10 10 0.1</size>
+            </box>
+          </geometry>
+          <pose>0 0 0 0 0 0</pose>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+          </material>
+        </visual>
+        <!-- 바닥 충돌 설정 추가 -->
+        <collision name="floor_collision">
+          <geometry>
+            <box>
+              <size>10 10 0.1</size>
+            </box>
+          </geometry>
+          <pose>0 0 0 0 0 0</pose>
+        </collision>
+      </link>
+    </model>
+
+    <!-- 스마트팜 모델 로딩 (Gazebo 모델 라이브러리 사용) -->
+    <model name="farm_terrain">
+      <static>true</static>
+      <link name="farm_terrain_link">
+        <visual name="terrain_visual">
+          <geometry>
+            <mesh>
+              <uri>model://worlds/farm_terrain.dae</uri> <!-- 스마트팜 배경 지형 모델 -->
+            </mesh>
+          </geometry>
+          <pose>0 0 0 0 0 0</pose>
+        </visual>
+        <collision name="terrain_collision">
+          <geometry>
+            <mesh>
+              <uri>model://worlds/farm_terrain.dae</uri>
+            </mesh>
+          </geometry>
+          <pose>0 0 0 0 0 0</pose>
+        </collision>
+      </link>
+    </model>
+
+    <!-- 스마트팜 시설 모델 로딩 -->
+    <model name="smartfarm_buildings">
+      <static>true</static>
+      <link name="buildings_link">
+        <visual name="building_visual">
+          <geometry>
+            <mesh>
+              <uri>model://worlds/farm_buildings.dae</uri> <!-- 스마트팜 건물 모델 -->
+            </mesh>
+          </geometry>
+          <pose>0 0 0 0 0 0</pose>
+        </visual>
+        <collision name="building_collision">
+          <geometry>
+            <mesh>
+              <uri>model://worlds/farm_buildings.dae</uri>
+            </mesh>
+          </geometry>
+          <pose>0 0 0 0 0 0</pose>
+        </collision>
+      </link>
+    </model>
+
+    <!-- 스마트팜 내부 장애물 (예: 식물들, 작은 농기구) -->
+    <model name="farm_obstacles">
+      <static>true</static>
+      <link name="obstacles_link">
+        <!-- 장애물 1: 작은 농기구 -->
+        <visual name="tool_1">
+          <geometry>
+            <box>
+              <size>0.6 0.3 0.5</size>
+            </box>
+          </geometry>
+          <pose>-3 3 0.25 0 0 0</pose>
+          <material>
+            <ambient>0.4 0.6 0.2 1</ambient>
+          </material>
+        </visual>
+        <collision name="tool_1_collision">
+          <geometry>
+            <box>
+              <size>0.6 0.3 0.5</size>
+            </box>
+          </geometry>
+          <pose>-3 3 0.25 0 0 0</pose>
+        </collision>
+
+        <!-- 장애물 2: 더 큰 농기구 -->
+        <visual name="tool_2">
+          <geometry>
+            <box>
+              <size>1 1 0.7</size>
+            </box>
+          </geometry>
+          <pose>3 -3 0.35 0 0 0</pose>
+          <material>
+            <ambient>0.7 0.3 0.5 1</ambient>
+          </material>
+        </visual>
+        <collision name="tool_2_collision">
+          <geometry>
+            <box>
+              <size>1 1 0.7</size>
+            </box>
+          </geometry>
+          <pose>3 -3 0.35 0 0 0</pose>
+        </collision>
+
+        <!-- 장애물 3: 농기구 -->
+        <visual name="tool_3">
+          <geometry>
+            <cylinder>
+              <radius>0.3</radius>
+              <length>0.8</length>
+            </cylinder>
+          </geometry>
+          <pose>-5 5 0.4 0 0 0</pose>
+          <material>
+            <ambient>0.8 0.5 0.3 1</ambient>
+          </material>
+        </visual>
+        <collision name="tool_3_collision">
+          <geometry>
+            <cylinder>
+              <radius>0.3</radius>
+              <length>0.8</length>
+            </cylinder>
+          </geometry>
+          <pose>-5 5 0.4 0 0 0</pose>
+        </collision>
+      </link>
+    </model>
+
+  </world>
+</sdf>

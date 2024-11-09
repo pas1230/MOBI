@@ -20,7 +20,7 @@ if(NOT SCRIPT_RESULT EQUAL 0)
 endif()
 
 install(
-  DIRECTORY launch rviz worlds models
+  DIRECTORY launch rviz worlds
   DESTINATION share/${PROJECT_NAME}
 )
 

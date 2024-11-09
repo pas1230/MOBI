@@ -14,7 +14,7 @@
 
 import os
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, ExecuteProcess, IncludeLaunchDescription
+from launch.actions import DeclareLaunchArgument, ExecuteProcess, IncludeLaunchDescription, TimerAction
 from launch.substitutions import LaunchConfiguration, Command, PathJoinSubstitution
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch_ros.actions import Node
@@ -31,7 +31,7 @@ def generate_launch_description():
     )
 
     world_path = PathJoinSubstitution(
-        [FindPackageShare("linorobot2_gazebo"), "worlds", "warehouse.world"]
+        [FindPackageShare("linorobot2_gazebo"), "worlds", "test1.world"]
     )
 
     description_launch_path = PathJoinSubstitution(
@@ -59,7 +59,7 @@ def generate_launch_description():
 
         DeclareLaunchArgument(
             name='spawn_z', 
-            default_value='0.0',
+            default_value='0.5',
             description='Robot spawn position in Z axis'
         ),
             
@@ -74,18 +74,37 @@ def generate_launch_description():
             output='screen'
         ),
 
-        Node(
-            package='gazebo_ros',
-            executable='spawn_entity.py',
-            name='urdf_spawner',
-            output='screen',
-            arguments=[
-                '-topic', 'robot_description', 
-                '-entity', 'linorobot2', 
-                '-x', LaunchConfiguration('spawn_x'),
-                '-y', LaunchConfiguration('spawn_y'),
-                '-z', LaunchConfiguration('spawn_z'),
-                '-Y', LaunchConfiguration('spawn_yaw'),
+        # Node(
+        #     package='gazebo_ros',
+        #     executable='spawn_entity.py',
+        #     name='urdf_spawner',
+        #     output='screen',
+        #     arguments=[
+        #         '-topic', 'robot_description', 
+        #         '-entity', 'linorobot2', 
+        #         '-x', LaunchConfiguration('spawn_x'),
+        #         '-y', LaunchConfiguration('spawn_y'),
+        #         '-z', LaunchConfiguration('spawn_z'),
+        #         '-Y', LaunchConfiguration('spawn_yaw'),
+        #     ]
+        # ),
+        TimerAction(
+            period=10.0,
+            actions=[
+                Node(
+                    package='gazebo_ros',
+                    executable='spawn_entity.py',
+                    name='urdf_spawner',
+                    output='screen',
+                    arguments=[
+                        '-topic', 'robot_description', 
+                        '-entity', 'linorobot2', 
+                        '-x', LaunchConfiguration('spawn_x'),
+                        '-y', LaunchConfiguration('spawn_y'),
+                        '-z', LaunchConfiguration('spawn_z'),
+                        '-Y', LaunchConfiguration('spawn_yaw'),
+                    ]
+                ),
             ]
         ),
 
